@@ -33,11 +33,11 @@ const Search = () => {
         value={query ? query : ""}
         onChange={(e) =>
           setQuery((e.target as HTMLInputElement).value)}
-        class={tw`p-2 w-full border-2 border-yellow-400 rounded-md text-lg mt-4 text-center focus:(outline-none border-yellow-500)`}
+        class={tw`p-2 w-full border-2 border-yellow-300 rounded-md text-lg mt-4 text-center duration-300 focus:(outline-none border-yellow-400)`}
       />
       <button
         onClick={() => search(query)}
-        class={tw`bg-yellow-400 py-2 px-4 rounded-md duration-300 shadow-md text-lg mt-4 hover:(shadow-lg) focus:(shadow-lg outline-none)`}
+        class={tw`bg-yellow-300 py-2 px-4 rounded-md duration-300 shadow-md text-lg mt-4 hover:(shadow-lg) focus:(shadow-lg outline-none)`}
       >
         Search
       </button>
