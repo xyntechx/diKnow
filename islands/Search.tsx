@@ -7,7 +7,9 @@ import Info from "../components/Info.tsx";
 
 const Search = () => {
   const [query, setQuery] = useState("");
-  const [result, setResult] = useState([""]);
+  const [result, setResult] = useState([
+    "What are you waiting for? Search now 🦕",
+  ]);
 
   const search = (query: string) => {
     let tempResult = [];
@@ -24,13 +26,14 @@ const Search = () => {
   };
 
   return (
-    <div class={tw`flex flex-col items-center justify-start`}>
+    <div class={tw`flex flex-col items-center justify-start md:(w-1/2) w-4/5`}>
       <input
         type="text"
         placeholder="Dino Name"
-        defaultValue=""
-        onChange={(e) => setQuery((e.target as HTMLInputElement).value)}
-        class={tw`p-2 w-96 border-2 border-yellow-400 rounded-md text-lg mt-4 focus:(outline-none border-yellow-500)`}
+        value={query ? query : ""}
+        onChange={(e) =>
+          setQuery((e.target as HTMLInputElement).value)}
+        class={tw`p-2 w-full border-2 border-yellow-400 rounded-md text-lg mt-4 text-center focus:(outline-none border-yellow-500)`}
       />
       <button
         onClick={() => search(query)}
@@ -40,10 +43,17 @@ const Search = () => {
       </button>
       {}
 
-      {result.includes("No dinosaurs found!")
-        ? <p class={tw`italic text-base mt-4`}>No dinosaurs found!</p>
+      {result.includes("No dinosaurs found!") ||
+          result.includes("What are you waiting for? Search now 🦕")
+        ? (
+          <p class={tw`italic text-base mt-4 text-center w-full px-2`}>
+            {result[0]}
+          </p>
+        )
         : (
-          <div class={tw`flex flex-col items-center justify-center text-lg`}>
+          <div
+            class={tw`flex flex-col items-center justify-center w-3/5 md:(w-full)`}
+          >
             {result.map((name) => <Info name={name} />)}
           </div>
         )}
