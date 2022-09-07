@@ -11,7 +11,7 @@ export default function Home() {
         <title>diKnow</title>
         <meta name="description" content="Learn about dinosaurs" />
       </Head>
-      <main class={tw`flex flex-col items-center justify-start my-10`}>
+      <main class={tw`flex flex-col items-center justify-start my-10 w-full`}>
         <h1 class={tw`text-5xl font-bold`}>
           diKnow
         </h1>
