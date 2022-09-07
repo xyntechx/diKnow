@@ -12,10 +12,12 @@ export default function Home() {
         <meta name="description" content="Learn about dinosaurs" />
       </Head>
       <main class={tw`flex flex-col items-center justify-start my-10 w-full`}>
-        <h1 class={tw`text-5xl font-bold text-center`}>
+        <h1 class={tw`md:(text-5xl) text-4xl font-bold text-center`}>
           diKnow
         </h1>
-        <p class={tw`mt-1 text-lg text-center`}>Get started by searching for a dinosaur!</p>
+        <p class={tw`mt-1 text-lg text-center`}>
+          Get started by searching for a dinosaur!
+        </p>
         <Search />
       </main>
     </div>
