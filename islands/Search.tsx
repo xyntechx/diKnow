@@ -52,7 +52,7 @@ const Search = () => {
         )
         : (
           <div
-            class={tw`flex flex-col items-center justify-center w-3/5 md:(w-full)`}
+            class={tw`flex flex-col items-center justify-center w-4/5 md:(w-full)`}
           >
             {result.map((name) => <Info name={name} />)}
           </div>
