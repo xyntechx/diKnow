@@ -1,6 +1,5 @@
 /** @jsx h */
 import { h } from "preact";
-import { useState } from "preact/hooks";
 import { tw } from "@twind";
 
 interface InfoProps {
@@ -9,9 +8,13 @@ interface InfoProps {
 
 const Info = ({ name }: InfoProps) => {
   return (
-    <div class={tw`mt-4`}>
-      <p>{name}</p>
-    </div>
+    <a
+      class={tw`mt-6 shadow-md border rounded-md border-transparent w-full p-4 duration-300 hover:(shadow-lg) focus:(shadow-lg outline-none)`}
+      href={name}
+    >
+      <p class={tw`font-bold text-lg`}>{name}</p>
+      <p class={tw`text-base mt-2`}>Learn More ➡</p>
+    </a>
   );
 };
 
