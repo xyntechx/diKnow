@@ -14,6 +14,12 @@ const DinoPage = (props: PageProps) => {
       </Head>
       <main class={tw`flex flex-col items-center justify-start my-10`}>
         <Dino name={props.params.dino} />
+        <a
+          href="/"
+          class={tw`bg-yellow-300 py-2 px-4 rounded-md duration-300 shadow-md text-lg mt-4 hover:(shadow-lg) focus:(shadow-lg outline-none) mt-10`}
+        >
+          Continue Browsing...
+        </a>
       </main>
     </div>
   );
