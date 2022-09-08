@@ -11,10 +11,12 @@ const Search = () => {
     "What are you waiting for? Search now 🦕",
   ]);
   const [bookmarked, setBookmarked] = useState<string[]>([]);
+  const [suggested, setSuggested] = useState<string[]>([]);
   const [pressToggle, setPressToggle] = useState(false);
 
   useEffect(() => {
     getBookmarked();
+    getSuggested();
   }, []);
 
   useEffect(() => {
@@ -30,6 +32,17 @@ const Search = () => {
       if (stored === true) tempBookmarked.push(name);
     }
     setBookmarked(tempBookmarked);
+  };
+
+  const getSuggested = () => {
+    let tempSuggested = [];
+    for (let i = 0; i < 5; i++) {
+      const index = Math.floor(Math.random() * DINOLIST.length);
+      const name = DINOLIST[index][0].charAt(0).toUpperCase() +
+        DINOLIST[index][0].slice(1);
+      tempSuggested.push(name);
+    }
+    setSuggested(tempSuggested);
   };
 
   const search = (query: string) => {
@@ -94,6 +107,12 @@ const Search = () => {
                     No bookmarks yet!
                   </p>
                 )}
+              <p class={tw`w-full text-left text-lg font-bold -mb-4 mt-10`}>
+                🦕 Suggested
+              </p>
+              <div class={tw`w-full`}>
+                {suggested.map((name) => <Info name={name} />)}
+              </div>
             </div>
           </div>
         )
