@@ -65,7 +65,7 @@ const Dino = ({ name }: DinoProps) => {
     <div class={tw`md:(w-3/5) w-4/5`}>
       <h1 class={tw`md:(text-5xl) text-4xl font-bold text-center`}>{name}</h1>
 
-      <table class={tw`mt-10`}>
+      <table class={tw`mt-10 w-full`}>
         <tr>
           <td
             rowSpan={1}
