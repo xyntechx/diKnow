@@ -18,6 +18,7 @@ export default function Home() {
         <p class={tw`mt-1 text-lg text-center`}>
           Get started by searching for a dinosaur!
         </p>
+        <img src="./walk.png" class={tw`h-20`} alt="walking dinos" />
         <Search />
         <a href="https://github.com/xyntechx/diKnow" target="_blank">
           <img
