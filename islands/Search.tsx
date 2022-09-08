@@ -1,6 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { tw } from "@twind";
 import DINOLIST from "../utils/dinolist.ts";
 import Info from "../islands/Info.tsx";
@@ -10,6 +10,22 @@ const Search = () => {
   const [result, setResult] = useState([
     "What are you waiting for? Search now 🦕",
   ]);
+  const [bookmarked, setBookmarked] = useState<string[]>([]);
+
+  useEffect(() => {
+    getBookmarked();
+  }, []);
+
+  const getBookmarked = () => {
+    let tempBookmarked = [];
+    for (let i = 0; i < DINOLIST.length; i++) {
+      const name = DINOLIST[i][0].charAt(0).toUpperCase() +
+        DINOLIST[i][0].slice(1);
+      const stored = JSON.parse(localStorage.getItem(name)!);
+      if (stored === true) tempBookmarked.push(name);
+    }
+    setBookmarked(tempBookmarked);
+  };
 
   const search = (query: string) => {
     let tempResult = [];
@@ -41,14 +57,33 @@ const Search = () => {
       >
         Search
       </button>
-      {}
 
       {result.includes("No dinosaurs found!") ||
           result.includes("What are you waiting for? Search now 🦕")
         ? (
-          <p class={tw`italic text-base mt-4 text-center w-full px-2`}>
-            {result[0]}
-          </p>
+          <div class={tw`w-4/5 md:(w-full)`}>
+            <p class={tw`italic text-base mt-4 text-center w-full px-2`}>
+              {result[0]}
+            </p>
+            <div
+              class={tw`flex flex-col items-center justify-center w-full mt-5`}
+            >
+              <p class={tw`w-full text-left text-lg font-bold -mb-4`}>
+                🔖 Bookmarked
+              </p>
+              {bookmarked.length > 0
+                ? (
+                  <div class={tw`w-full`}>
+                    {bookmarked.map((name) => <Info name={name} />)}
+                  </div>
+                )
+                : (
+                  <p class={tw`w-full text-left text-base mt-4`}>
+                    No bookmarks yet!
+                  </p>
+                )}
+            </div>
+          </div>
         )
         : (
           <div
