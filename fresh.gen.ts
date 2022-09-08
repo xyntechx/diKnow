@@ -5,7 +5,8 @@
 import * as $0 from "./routes/[dino].tsx";
 import * as $1 from "./routes/index.tsx";
 import * as $$0 from "./islands/Dino.tsx";
-import * as $$1 from "./islands/Search.tsx";
+import * as $$1 from "./islands/Info.tsx";
+import * as $$2 from "./islands/Search.tsx";
 
 const manifest = {
   routes: {
@@ -14,7 +15,8 @@ const manifest = {
   },
   islands: {
     "./islands/Dino.tsx": $$0,
-    "./islands/Search.tsx": $$1,
+    "./islands/Info.tsx": $$1,
+    "./islands/Search.tsx": $$2,
   },
   baseUrl: import.meta.url,
 };

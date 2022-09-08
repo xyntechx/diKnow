@@ -3,7 +3,7 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import { tw } from "@twind";
 import DINOLIST from "../utils/dinolist.ts";
-import Info from "../components/Info.tsx";
+import Info from "../islands/Info.tsx";
 
 const Search = () => {
   const [query, setQuery] = useState("");

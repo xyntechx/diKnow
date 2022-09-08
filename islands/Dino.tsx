@@ -18,8 +18,25 @@ const Dino = ({ name }: DinoProps) => {
   const [namedBy, setNamedBy] = useState("");
   const [species, setSpecies] = useState("");
   const [link, setLink] = useState("");
+  const [bookmarked, setBookmarked] = useState(false);
 
   useEffect(() => {
+    getBookmarked();
+    getInfo();
+  }, []);
+
+  const getBookmarked = () => {
+    const stored = JSON.parse(localStorage.getItem(name)!);
+    if (stored === null) setBookmarked(false);
+    else setBookmarked(stored);
+  };
+
+  const toggleBookmark = () => {
+    setBookmarked(!bookmarked);
+    localStorage.setItem(name, JSON.stringify(!bookmarked));
+  };
+
+  const getInfo = () => {
     let index = 0;
     for (let i = 0; i < DINOLIST.length; i++) {
       if (DINOLIST[i].includes(name.toLowerCase())) {
@@ -42,7 +59,7 @@ const Dino = ({ name }: DinoProps) => {
     setNamedBy(dinoInfo[7]);
     setSpecies(dinoInfo[8]);
     setLink(dinoInfo[9]);
-  }, []);
+  };
 
   return (
     <div class={tw`md:(w-3/5) w-4/5`}>
@@ -111,17 +128,27 @@ const Dino = ({ name }: DinoProps) => {
         </tr>
       </table>
 
-      <p class={tw`text-lg mt-10 w-full text-right`}>
-        Learn more{" "}
-        <a
-          href={link}
-          target="_blank"
-          class={tw`text-yellow-500 hover:(text-underline)`}
-        >
-          here
-        </a>{" "}
-        🦕
-      </p>
+      <div class={tw`mt-10 w-full flex flex-row justify-between`}>
+        <p class={tw`text-lg text-left`}>
+          Learn more{" "}
+          <a
+            href={link}
+            target="_blank"
+            class={tw`text-yellow-500 hover:(text-underline)`}
+          >
+            here
+          </a>{" "}
+          🦕
+        </p>
+        <img
+          src={bookmarked ? "/bookmarked.png" : "unbookmarked.png"}
+          width="30"
+          height="30"
+          alt="Bookmarked"
+          class={tw`cursor-pointer`}
+          onClick={() => toggleBookmark()}
+        />
+      </div>
     </div>
   );
 };
