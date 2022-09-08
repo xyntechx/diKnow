@@ -51,8 +51,14 @@ const Search = () => {
 
     for (let i = 0; i < DINOLIST.length; i++) {
       const name = DINOLIST[i][0].toLowerCase();
-      if (query && name.slice(0, queryLength).includes(query.toLowerCase())) {
-        tempResult.push(name.charAt(0).toUpperCase() + name.slice(1));
+      const location = DINOLIST[i][3].toLowerCase();
+      if (query) {
+        if (
+          name.slice(0, queryLength).includes(query.toLowerCase()) ||
+          location.slice(0, queryLength).includes(query.toLowerCase())
+        ) {
+          tempResult.push(name.charAt(0).toUpperCase() + name.slice(1));
+        }
       }
     }
     if (tempResult.length > 0) setResult(tempResult);
@@ -69,7 +75,7 @@ const Search = () => {
     <div class={tw`flex flex-col items-center justify-start md:(w-1/2) w-4/5`}>
       <input
         type="text"
-        placeholder="Dino Name"
+        placeholder="Dino Name / Location"
         value={query ? query : ""}
         onChange={(e) =>
           setQuery((e.target as HTMLInputElement).value)}
