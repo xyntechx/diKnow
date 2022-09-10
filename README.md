@@ -1,6 +1,6 @@
 # diKnow
 
-A web application to learn about dinosaurs
+A [web application](https://xyntechx-diknow.deno.dev) to learn about dinosaurs
 
 ## 🚀 Features
 
