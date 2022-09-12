@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
 import { useEffect, useState } from "preact/hooks";
 import DINOLIST from "../utils/dinolist.ts";
 
@@ -62,79 +59,79 @@ const Dino = ({ name }: DinoProps) => {
   };
 
   return (
-    <div class={tw`md:(w-3/5) w-4/5`}>
-      <h1 class={tw`md:(text-5xl) text-4xl font-bold text-center`}>{name}</h1>
+    <div class="md:(w-3/5) w-4/5">
+      <h1 class="md:(text-5xl) text-4xl font-bold text-center">{name}</h1>
 
-      <table class={tw`mt-10 w-full`}>
+      <table class="mt-10 w-full">
         <tr>
           <td
             rowSpan={1}
-            class={tw`w-1/3 text-lg bg-yellow-200 pl-2 font-bold`}
+            class="w-1/3 text-lg bg-yellow-200 pl-2 font-bold"
           >
             Period
           </td>
-          <td class={tw`w-2/3 text-lg bg-yellow-200 pr-2`}>{period}</td>
+          <td class="w-2/3 text-lg bg-yellow-200 pr-2">{period}</td>
         </tr>
         <tr>
-          <td rowSpan={1} class={tw`w-1/3 text-lg pl-2 font-bold`}>
+          <td rowSpan={1} class="w-1/3 text-lg pl-2 font-bold">
             Diet
           </td>
-          <td class={tw`w-2/3 text-lg pr-2`}>{diet}</td>
+          <td class="w-2/3 text-lg pr-2">{diet}</td>
         </tr>
         <tr>
           <td
             rowSpan={1}
-            class={tw`w-1/3 text-lg bg-yellow-200 pl-2 font-bold`}
+            class="w-1/3 text-lg bg-yellow-200 pl-2 font-bold"
           >
             Location
           </td>
-          <td class={tw`w-2/3 text-lg bg-yellow-200 pr-2`}>{location}</td>
+          <td class="w-2/3 text-lg bg-yellow-200 pr-2">{location}</td>
         </tr>
         <tr>
-          <td rowSpan={1} class={tw`w-1/3 text-lg pl-2 font-bold`}>
+          <td rowSpan={1} class="w-1/3 text-lg pl-2 font-bold">
             Type
           </td>
-          <td class={tw`w-2/3 text-lg pr-2`}>{type}</td>
+          <td class="w-2/3 text-lg pr-2">{type}</td>
         </tr>
         <tr>
           <td
             rowSpan={1}
-            class={tw`w-1/3 text-lg bg-yellow-200 pl-2 font-bold`}
+            class="w-1/3 text-lg bg-yellow-200 pl-2 font-bold"
           >
             Length
           </td>
-          <td class={tw`w-2/3 text-lg bg-yellow-200 pr-2`}>{length}</td>
+          <td class="w-2/3 text-lg bg-yellow-200 pr-2">{length}</td>
         </tr>
         <tr>
-          <td rowSpan={1} class={tw`w-1/3 text-lg pl-2 font-bold`}>
+          <td rowSpan={1} class="w-1/3 text-lg pl-2 font-bold">
             Taxonomy
           </td>
-          <td class={tw`w-2/3 text-lg pr-2`}>{taxonomy}</td>
+          <td class="w-2/3 text-lg pr-2">{taxonomy}</td>
         </tr>
         <tr>
           <td
             rowSpan={1}
-            class={tw`w-1/3 text-lg bg-yellow-200 pl-2 font-bold`}
+            class="w-1/3 text-lg bg-yellow-200 pl-2 font-bold"
           >
             Named By
           </td>
-          <td class={tw`w-2/3 text-lg bg-yellow-200 pr-2`}>{namedBy}</td>
+          <td class="w-2/3 text-lg bg-yellow-200 pr-2">{namedBy}</td>
         </tr>
         <tr>
-          <td rowSpan={1} class={tw`w-1/3 text-lg pl-2 font-bold`}>
+          <td rowSpan={1} class="w-1/3 text-lg pl-2 font-bold">
             Species
           </td>
-          <td class={tw`w-2/3 text-lg pr-2`}>{species}</td>
+          <td class="w-2/3 text-lg pr-2">{species}</td>
         </tr>
       </table>
 
-      <div class={tw`mt-10 w-full flex flex-row justify-between`}>
-        <p class={tw`text-lg text-left`}>
+      <div class="mt-10 w-full flex flex-row justify-between">
+        <p class="text-lg text-left">
           Learn more{" "}
           <a
             href={link}
             target="_blank"
-            class={tw`text-yellow-500 hover:(text-underline)`}
+            class="text-yellow-500 hover:(text-underline)"
           >
             here
           </a>{" "}
@@ -145,7 +142,7 @@ const Dino = ({ name }: DinoProps) => {
           width="30"
           height="30"
           alt="Bookmarked"
-          class={tw`cursor-pointer`}
+          class="cursor-pointer"
           onClick={() => toggleBookmark()}
         />
       </div>

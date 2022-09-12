@@ -1,7 +1,4 @@
-/** @jsx h */
-import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
-import { tw } from "@twind";
 import DINOLIST from "../utils/dinolist.ts";
 import Info from "../islands/Info.tsx";
 
@@ -72,7 +69,7 @@ const Search = () => {
   };
 
   return (
-    <div class={tw`flex flex-col items-center justify-start md:(w-1/2) w-4/5`}>
+    <div class="flex flex-col items-center justify-start md:(w-1/2) w-4/5">
       <input
         type="text"
         placeholder="Dino Name / Location"
@@ -80,11 +77,11 @@ const Search = () => {
         onChange={(e) =>
           setQuery((e.target as HTMLInputElement).value)}
         onKeyPress={(e) => handleKeyPress(e)}
-        class={tw`p-2 w-full border-2 border-yellow-300 rounded-md text-lg mt-4 text-center duration-300 focus:(outline-none border-yellow-400)`}
+        class="p-2 w-full border-2 border-yellow-300 rounded-md text-lg mt-4 text-center duration-300 focus:(outline-none border-yellow-400)"
       />
       <button
         onClick={() => setPressToggle(!pressToggle)}
-        class={tw`bg-yellow-300 py-2 px-4 rounded-md duration-300 shadow-md text-lg mt-4 hover:(shadow-lg) focus:(shadow-lg outline-none)`}
+        class="bg-yellow-300 py-2 px-4 rounded-md duration-300 shadow-md text-lg mt-4 hover:(shadow-lg) focus:(shadow-lg outline-none)"
       >
         Search
       </button>
@@ -92,31 +89,31 @@ const Search = () => {
       {result.includes("No dinosaurs found!") ||
           result.includes("What are you waiting for? Search now 🦕")
         ? (
-          <div class={tw`w-4/5 md:(w-full)`}>
-            <p class={tw`italic text-base mt-4 text-center w-full px-2`}>
+          <div class="w-4/5 md:(w-full)">
+            <p class="italic text-base mt-4 text-center w-full px-2">
               {result[0]}
             </p>
             <div
-              class={tw`flex flex-col items-center justify-center w-full mt-5`}
+              class="flex flex-col items-center justify-center w-full mt-5"
             >
-              <p class={tw`w-full text-left text-lg font-bold -mb-4`}>
+              <p class="w-full text-left text-lg font-bold -mb-4">
                 🔖 Bookmarked
               </p>
               {bookmarked.length > 0
                 ? (
-                  <div class={tw`w-full`}>
+                  <div class="w-full">
                     {bookmarked.map((name) => <Info name={name} />)}
                   </div>
                 )
                 : (
-                  <p class={tw`w-full text-left text-base mt-4`}>
+                  <p class="w-full text-left text-base mt-4">
                     No bookmarks yet!
                   </p>
                 )}
-              <p class={tw`w-full text-left text-lg font-bold -mb-4 mt-10`}>
+              <p class="w-full text-left text-lg font-bold -mb-4 mt-10">
                 🦕 Suggested
               </p>
-              <div class={tw`w-full`}>
+              <div class="w-full">
                 {suggested.map((name) => <Info name={name} />)}
               </div>
             </div>
@@ -124,7 +121,7 @@ const Search = () => {
         )
         : (
           <div
-            class={tw`flex flex-col items-center justify-center w-4/5 md:(w-full)`}
+            class="flex flex-col items-center justify-center w-4/5 md:(w-full)"
           >
             {result.map((name) => <Info name={name} />)}
           </div>

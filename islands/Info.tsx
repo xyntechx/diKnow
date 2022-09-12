@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
 import { useEffect, useState } from "preact/hooks";
 
 interface InfoProps {
@@ -23,14 +20,14 @@ const Info = ({ name }: InfoProps) => {
 
   return (
     <div
-      class={tw`mt-6 shadow-md border rounded-md border-transparent w-full p-4 duration-300 hover:(shadow-lg) focus:(shadow-lg outline-none) flex md:(flex-row) flex-col cursor-pointer`}
+      class="mt-6 shadow-md border rounded-md border-transparent w-full p-4 duration-300 hover:(shadow-lg) focus:(shadow-lg outline-none) flex md:(flex-row) flex-col cursor-pointer"
     >
-      <a class={tw`w-full`} href={name}>
-        <p class={tw`font-bold text-lg`}>{name}</p>
-        <p class={tw`text-base mt-2`}>Learn More ➡</p>
+      <a class="w-full" href={name}>
+        <p class="font-bold text-lg">{name}</p>
+        <p class="text-base mt-2">Learn More ➡</p>
       </a>
       <div
-        class={tw`md:(mt-0 w-1/12 h-8 w-8) mt-2 flex justify-end`}
+        class="md:(mt-0 w-1/12 h-8 w-8) mt-2 flex justify-end"
         onClick={() => toggleBookmark()}
       >
         <img
